@@ -1,0 +1,36 @@
+name: DicyaninSceneReconstructionExample
+options:
+  bundleIdPrefix: com.dicyanin
+  deploymentTarget:
+    visionOS: "2.0"
+  createIntermediateGroups: true
+
+packages:
+  DicyaninSceneReconstruction:
+    path: ..
+
+targets:
+  DicyaninSceneReconstructionExample:
+    type: application
+    platform: visionOS
+    sources:
+      - Example
+    dependencies:
+      - package: DicyaninSceneReconstruction
+        product: DicyaninSceneReconstruction
+    info:
+      path: Example/Info.plist
+      properties:
+        CFBundleDisplayName: Scene Recon Example
+        UIApplicationSceneManifest:
+          UIApplicationPreferredDefaultSceneSessionRole: UIWindowSceneSessionRoleVolumetricApplication
+          UISceneConfigurations: {}
+        # Required to access world-sensing data (scene reconstruction mesh).
+        NSWorldSensingUsageDescription: "Reconstructs a mesh of your surroundings to place and occlude virtual content."
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.dicyanin.SceneReconExample
+        GENERATE_INFOPLIST_FILE: NO
+        SWIFT_VERSION: "6.0"
+        TARGETED_DEVICE_FAMILY: "7"
+        CODE_SIGNING_ALLOWED: NO

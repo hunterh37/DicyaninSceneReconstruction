@@ -1,5 +1,7 @@
 # DicyaninSceneReconstruction
 
+![DicyaninSceneReconstruction concept art](concept.png)
+
 A small, reusable visionOS package that wraps Apple's `SceneReconstructionProvider`
 into a clean service: start/stop scene reconstruction, get the tracked mesh anchors
 and their `ModelEntity` chunks (with real static colliders for RealityKit physics),
@@ -83,6 +85,20 @@ devices `start()` no-ops and `isScanComplete` is `true`.
 See [`Examples/ImmersiveExample.swift`](Examples/ImmersiveExample.swift) for a complete
 thin-shell `RealityView` that starts reconstruction and drops a marker where a downward
 ray meets the floor.
+
+## Example app
+
+A full, runnable visionOS app lives in [`ExampleApp/`](ExampleApp). Open
+`ExampleApp/DicyaninSceneReconstructionExample.xcodeproj` in Xcode 16+ and run on a
+Vision Pro — it opens an immersive space, starts reconstruction, shows live scan
+progress, and drops a marker on `raycastToFloor` (tap the mesh, or use the button).
+
+> Scene reconstruction only produces mesh on a real device, not the simulator.
+
+The project is generated with [XcodeGen](https://github.com/yonaskolb/XcodeGen) from
+`ExampleApp/project.yml`; if you change the manifest, run `xcodegen generate` inside
+`ExampleApp/` to regenerate the `.xcodeproj`. The `NSWorldSensingUsageDescription` key
+(required for scene reconstruction) is already configured.
 
 ## License
 

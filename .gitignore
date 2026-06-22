@@ -2,3 +2,8 @@
 .swiftpm/
 .DS_Store
 Package.resolved
+
+# Xcode user state
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+DerivedData/
